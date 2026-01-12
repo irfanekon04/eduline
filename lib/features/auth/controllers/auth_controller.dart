@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
-
   final loginEmailController = TextEditingController();
   final loginPassController = TextEditingController();
   final loginFormKey = GlobalKey<FormState>();
@@ -16,6 +15,19 @@ class AuthController extends GetxController {
   var isRememberMe = false.obs;
   var isLoading = false.obs;
 
+  // Password Strength
+  var passwordStrength = 0.0.obs; // 0 to 1
+  var passwordStrengthText = "Weak".obs;
+  var isPasswordCompliant = false.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    signupPassController.addListener(() {
+      _checkPasswordStrength(signupPassController.text);
+    });
+  }
+
   @override
   void onClose() {
     loginEmailController.dispose();
@@ -24,6 +36,42 @@ class AuthController extends GetxController {
     signupNameController.dispose();
     signupPassController.dispose();
     super.onClose();
+  }
+
+  void _checkPasswordStrength(String password) {
+    if (password.isEmpty) {
+      passwordStrength.value = 0.0;
+      passwordStrengthText.value = "";
+      isPasswordCompliant.value = false;
+      return;
+    }
+
+    double strength = 0;
+    if (password.length > 0) strength += 0.25;
+    if (password.length >= 8) strength += 0.25;
+    if (RegExp(r'[A-Za-z]').hasMatch(password) &&
+        RegExp(r'[0-9]').hasMatch(password))
+      strength += 0.25;
+    if (password.length >= 8 && RegExp(r'[!@#\$&*~]').hasMatch(password))
+      strength += 0.25;
+
+    passwordStrength.value = strength;
+
+    if (strength <= 0.25) {
+      passwordStrengthText.value = "Weak";
+    } else if (strength <= 0.5) {
+      passwordStrengthText.value = "Fair";
+    } else if (strength <= 0.75) {
+      passwordStrengthText.value = "Good";
+    } else {
+      passwordStrengthText.value = "Strong";
+    }
+
+    // Specific compliance check: "At least 8 characters with a combination of letters and numbers"
+    isPasswordCompliant.value =
+        password.length >= 8 &&
+        RegExp(r'[A-Za-z]').hasMatch(password) &&
+        RegExp(r'[0-9]').hasMatch(password);
   }
 
   void togglePasswordVisibility() {

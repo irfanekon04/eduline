@@ -2,7 +2,6 @@ import 'package:eduline/core/common_widgets/primary_button.dart';
 import 'package:eduline/core/utils/app_colors.dart';
 import 'package:eduline/features/auth/controllers/auth_controller.dart';
 import 'package:eduline/features/auth/views/sign_up_screen.dart'; // Assuming this exists based on file list
-import 'package:eduline/routes/app_routes.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
