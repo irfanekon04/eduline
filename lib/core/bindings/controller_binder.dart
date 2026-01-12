@@ -1,9 +1,9 @@
-import 'package:eduline/features/auth/controllers/auth_controller.dart';
+import 'package:eduline/features/auth/bindings/auth_binding.dart';
 import 'package:get/get.dart';
 
 class ControllerBinder extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<AuthController>(() => AuthController(), fenix: true);
+    AuthBinding().dependencies();
   }
 }

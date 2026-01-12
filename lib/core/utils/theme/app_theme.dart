@@ -1,7 +1,6 @@
 import 'package:eduline/core/utils/app_colors.dart';
 import 'package:eduline/core/utils/theme/app_elevated_button_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static ThemeData get lightTheme {

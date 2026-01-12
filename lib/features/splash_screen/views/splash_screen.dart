@@ -1,5 +1,6 @@
 import 'package:eduline/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,12 +14,11 @@ class SplashScreen extends GetView<SplashController> {
       backgroundColor: AppColors.backgroundColor,
       body: Center(
         child: Padding(
-          padding: .symmetric(horizontal: 24.0),
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Spacer(),
-
               Image.asset('assets/images/splash_screen.png', height: 150),
               const SizedBox(height: 40),
               Text(
@@ -26,7 +26,7 @@ class SplashScreen extends GetView<SplashController> {
                 textAlign: TextAlign.center,
                 style: GoogleFonts.figtree(
                   fontSize: 24,
-                  fontWeight: .w700,
+                  fontWeight: FontWeight.w700,
                   color: AppColors.textPrimary,
                 ),
               ),
@@ -37,16 +37,12 @@ class SplashScreen extends GetView<SplashController> {
                 style: GoogleFonts.inter(
                   fontSize: 14,
                   color: AppColors.textBody,
-                  fontWeight: .w400,
+                  fontWeight: FontWeight.w400,
                   height: 1.5,
                 ),
               ),
               const Spacer(),
-              const CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(
-                  AppColors.primaryColor,
-                ),
-              ),
+              const SpinKitCircle(color: AppColors.primaryColor, size: 50.0),
               const SizedBox(height: 50),
             ],
           ),

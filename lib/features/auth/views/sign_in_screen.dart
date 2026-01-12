@@ -1,7 +1,8 @@
 import 'package:eduline/core/common_widgets/primary_button.dart';
 import 'package:eduline/core/utils/app_colors.dart';
 import 'package:eduline/features/auth/controllers/auth_controller.dart';
-import 'package:eduline/features/auth/views/sign_up_screen.dart'; // Assuming this exists based on file list
+import 'package:eduline/features/auth/views/sign_up_screen.dart';
+import 'package:eduline/features/auth/views/forgot_pass_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,7 +25,7 @@ class SignInScreen extends GetView<AuthController> {
               Center(
                 child: Image.asset(
                   'assets/images/sign_in.png',
-                  height: 120,
+                  height: 70,
                   fit: BoxFit.contain,
                 ),
               ),
@@ -32,8 +33,8 @@ class SignInScreen extends GetView<AuthController> {
               Center(
                 child: Text(
                   "Welcome Back!",
-                  style: GoogleFonts.manrope(
-                    fontSize: 24,
+                  style: GoogleFonts.inter(
+                    fontSize: 36,
                     fontWeight: FontWeight.bold,
                     color: AppColors.textPrimary,
                   ),
@@ -44,7 +45,7 @@ class SignInScreen extends GetView<AuthController> {
                 child: Text(
                   "Please login first to start your Theory Test.",
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.manrope(
+                  style: GoogleFonts.inter(
                     fontSize: 14,
                     color: AppColors.textBody,
                   ),
@@ -58,7 +59,7 @@ class SignInScreen extends GetView<AuthController> {
                   children: [
                     Text(
                       "Email Address",
-                      style: GoogleFonts.manrope(
+                      style: GoogleFonts.inter(
                         fontWeight: FontWeight.w600,
                         color: AppColors.textPrimary,
                         fontSize: 14,
@@ -76,11 +77,11 @@ class SignInScreen extends GetView<AuthController> {
                         }
                         return null;
                       },
-                      style: GoogleFonts.manrope(color: AppColors.textPrimary),
+                      style: GoogleFonts.inter(color: AppColors.textPrimary),
                       decoration: InputDecoration(
                         hintText: "pristia@gmail.com",
-                        hintStyle: GoogleFonts.manrope(
-                          color: AppColors.textSecondary,
+                        hintStyle: GoogleFonts.inter(
+                          color: AppColors.textPrimary,
                         ),
                         contentPadding: const EdgeInsets.symmetric(
                           horizontal: 20,
@@ -115,7 +116,7 @@ class SignInScreen extends GetView<AuthController> {
                     const SizedBox(height: 20),
                     Text(
                       "Password",
-                      style: GoogleFonts.manrope(
+                      style: GoogleFonts.inter(
                         fontWeight: FontWeight.w600,
                         color: AppColors.textPrimary,
                         fontSize: 14,
@@ -132,19 +133,17 @@ class SignInScreen extends GetView<AuthController> {
                           }
                           return null;
                         },
-                        style: GoogleFonts.manrope(
-                          color: AppColors.textPrimary,
-                        ),
+                        style: GoogleFonts.inter(color: AppColors.textPrimary),
                         decoration: InputDecoration(
-                          hintText: "••••••••",
-                          hintStyle: GoogleFonts.manrope(
-                            color: AppColors.textSecondary,
+                          hintText: "******",
+                          hintStyle: GoogleFonts.inter(
+                            color: AppColors.textPrimary,
                           ),
                           suffixIcon: IconButton(
                             icon: Icon(
                               controller.isPassVisible.value
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
+                                  ? Icons.visibility_outlined
+                                  : Icons.visibility_off_outlined,
                               color: AppColors.textSecondary,
                             ),
                             onPressed: controller.togglePasswordVisibility,
@@ -210,31 +209,30 @@ class SignInScreen extends GetView<AuthController> {
                       const SizedBox(width: 8),
                       Text(
                         "Remember Me",
-                        style: GoogleFonts.manrope(
+                        style: GoogleFonts.inter(
                           color: AppColors.textBody,
                           fontWeight: FontWeight.w500,
-                          fontSize: 13,
+                          fontSize: 14,
                         ),
                       ),
                     ],
                   ),
                   TextButton(
                     onPressed: () {
-                      // Navigate to Forgot Password
-                      // Get.to(() => const ForgotPasswordScreen());
+                      Get.to(() => const ForgotPasswordScreen());
                     },
                     child: Text(
                       "Forgot Password",
-                      style: GoogleFonts.manrope(
+                      style: GoogleFonts.inter(
                         color: AppColors.textBody,
                         fontWeight: FontWeight.w600,
-                        fontSize: 13,
+                        fontSize: 14,
                       ),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 15),
               Obx(
                 () => controller.isLoading.value
                     ? const Center(child: CircularProgressIndicator())
@@ -243,19 +241,19 @@ class SignInScreen extends GetView<AuthController> {
                         onPressed: controller.login,
                       ),
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               Center(
                 child: RichText(
                   text: TextSpan(
                     text: "New to Theory Test? ",
-                    style: GoogleFonts.manrope(
+                    style: GoogleFonts.inter(
                       color: AppColors.textBody,
                       fontSize: 14,
                     ),
                     children: [
                       TextSpan(
                         text: "Create Account",
-                        style: GoogleFonts.manrope(
+                        style: GoogleFonts.inter(
                           color: AppColors.primaryColor,
                           fontWeight: FontWeight.bold,
                           fontSize: 14,

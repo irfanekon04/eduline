@@ -27,7 +27,8 @@ class SignUpScreen extends GetView<AuthController> {
                 ),
                 child: IconButton(
                   icon: const Icon(
-                    Icons.arrow_back,
+                    Icons.arrow_back_ios_rounded,
+                    size: 18,
                     color: AppColors.textPrimary,
                   ),
                   onPressed: () => Get.back(),
@@ -36,7 +37,7 @@ class SignUpScreen extends GetView<AuthController> {
               const SizedBox(height: 30),
               Text(
                 "Welcome to Eduline",
-                style: GoogleFonts.manrope(
+                style: GoogleFonts.inter(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: AppColors.textPrimary,
@@ -44,11 +45,10 @@ class SignUpScreen extends GetView<AuthController> {
               ),
               const SizedBox(height: 8),
               Text(
-                "Let’s join to Eduline learning ecosystem & meet our professional mentor. It’s Free!",
-                style: GoogleFonts.manrope(
+                "Let's join to Eduline learning ecosystem & meet our professional mentor. It's Free!",
+                style: GoogleFonts.inter(
                   fontSize: 14,
                   color: AppColors.textBody,
-                  height: 1.5,
                 ),
               ),
               const SizedBox(height: 30),
@@ -59,7 +59,7 @@ class SignUpScreen extends GetView<AuthController> {
                   children: [
                     Text(
                       "Email Address",
-                      style: GoogleFonts.manrope(
+                      style: GoogleFonts.inter(
                         fontWeight: FontWeight.w600,
                         color: AppColors.textPrimary,
                         fontSize: 14,
@@ -77,11 +77,11 @@ class SignUpScreen extends GetView<AuthController> {
                         }
                         return null;
                       },
-                      style: GoogleFonts.manrope(color: AppColors.textPrimary),
+                      style: GoogleFonts.inter(color: AppColors.textPrimary),
                       decoration: InputDecoration(
                         hintText: "pristia@gmail.com",
-                        hintStyle: GoogleFonts.manrope(
-                          color: AppColors.textSecondary,
+                        hintStyle: GoogleFonts.inter(
+                          color: AppColors.textPrimary,
                         ),
                         contentPadding: const EdgeInsets.symmetric(
                           horizontal: 20,
@@ -116,7 +116,7 @@ class SignUpScreen extends GetView<AuthController> {
                     const SizedBox(height: 20),
                     Text(
                       "Full Name",
-                      style: GoogleFonts.manrope(
+                      style: GoogleFonts.inter(
                         fontWeight: FontWeight.w600,
                         color: AppColors.textPrimary,
                         fontSize: 14,
@@ -131,11 +131,11 @@ class SignUpScreen extends GetView<AuthController> {
                         }
                         return null;
                       },
-                      style: GoogleFonts.manrope(color: AppColors.textPrimary),
+                      style: GoogleFonts.inter(color: AppColors.textPrimary),
                       decoration: InputDecoration(
                         hintText: "Pristia Candra",
-                        hintStyle: GoogleFonts.manrope(
-                          color: AppColors.textSecondary,
+                        hintStyle: GoogleFonts.inter(
+                          color: AppColors.textPrimary,
                         ),
                         contentPadding: const EdgeInsets.symmetric(
                           horizontal: 20,
@@ -170,7 +170,7 @@ class SignUpScreen extends GetView<AuthController> {
                     const SizedBox(height: 20),
                     Text(
                       "Password",
-                      style: GoogleFonts.manrope(
+                      style: GoogleFonts.inter(
                         fontWeight: FontWeight.w600,
                         color: AppColors.textPrimary,
                         fontSize: 14,
@@ -190,13 +190,11 @@ class SignUpScreen extends GetView<AuthController> {
                           }
                           return null;
                         },
-                        style: GoogleFonts.manrope(
-                          color: AppColors.textPrimary,
-                        ),
+                        style: GoogleFonts.inter(color: AppColors.textPrimary),
                         decoration: InputDecoration(
-                          hintText: "••••••••",
-                          hintStyle: GoogleFonts.manrope(
-                            color: AppColors.textSecondary,
+                          hintText: "********",
+                          hintStyle: GoogleFonts.inter(
+                            color: AppColors.textPrimary,
                           ),
                           suffixIcon: IconButton(
                             icon: Icon(
@@ -297,7 +295,7 @@ class SignUpScreen extends GetView<AuthController> {
                     const SizedBox(width: 16),
                     Text(
                       controller.passwordStrengthText.value,
-                      style: GoogleFonts.manrope(
+                      style: GoogleFonts.inter(
                         color: AppColors.primaryColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 12,
@@ -321,7 +319,7 @@ class SignUpScreen extends GetView<AuthController> {
                     Expanded(
                       child: Text(
                         "At least 8 characters with a combination of letters and numbers",
-                        style: GoogleFonts.manrope(
+                        style: GoogleFonts.inter(
                           color: controller.isPasswordCompliant.value
                               ? AppColors.textAlert
                               : AppColors.textBody,
@@ -347,14 +345,14 @@ class SignUpScreen extends GetView<AuthController> {
                 child: RichText(
                   text: TextSpan(
                     text: "Already have an account? ",
-                    style: GoogleFonts.manrope(
+                    style: GoogleFonts.inter(
                       color: AppColors.textBody,
                       fontSize: 14,
                     ),
                     children: [
                       TextSpan(
                         text: "Sign In",
-                        style: GoogleFonts.manrope(
+                        style: GoogleFonts.inter(
                           color: AppColors.primaryColor,
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
