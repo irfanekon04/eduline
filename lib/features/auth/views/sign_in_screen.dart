@@ -81,7 +81,7 @@ class SignInScreen extends GetView<AuthController> {
                       decoration: InputDecoration(
                         hintText: "pristia@gmail.com",
                         hintStyle: GoogleFonts.inter(
-                          color: AppColors.textPrimary,
+                          color: AppColors.textSecondary,
                         ),
                         contentPadding: const EdgeInsets.symmetric(
                           horizontal: 20,
@@ -137,7 +137,7 @@ class SignInScreen extends GetView<AuthController> {
                         decoration: InputDecoration(
                           hintText: "******",
                           hintStyle: GoogleFonts.inter(
-                            color: AppColors.textPrimary,
+                            color: AppColors.textSecondary,
                           ),
                           suffixIcon: IconButton(
                             icon: Icon(

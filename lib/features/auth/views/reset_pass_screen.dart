@@ -87,8 +87,8 @@ class ResetPasswordScreen extends GetView<AuthController> {
                           suffixIcon: IconButton(
                             icon: Icon(
                               controller.isResetNewPassVisible.value
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
+                                  ? Icons.visibility_outlined
+                                  : Icons.visibility_off_outlined,
                               color: AppColors.textSecondary,
                             ),
                             onPressed: controller.toggleResetNewPassVisibility,
